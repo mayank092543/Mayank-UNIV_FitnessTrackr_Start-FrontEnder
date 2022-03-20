@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
-import { Link, BrowserRouter } from 'react-router-dom';
+import { Link, BrowserRouter, Route, Switch } from 'react-router-dom';
 
 // get our fontawesome imports
 import { faHome } from "@fortawesome/free-solid-svg-icons";
-
 
 import {
     Home,
@@ -56,7 +55,7 @@ const App = () => {
             </div>
 
             <div id="page-body">
-
+                <Switch>
                 <Route path = "/home">
                     <Home />
                 </Route>
@@ -84,7 +83,7 @@ const App = () => {
                 <Route path = "/register">
                     <Registration />
                 </Route>
-
+                </Switch>
             </div>
         </div>
      
