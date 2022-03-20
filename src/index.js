@@ -12,7 +12,8 @@ import {
     LogOut,
     Registration,
     Activities,
-    Routines
+    Routines,
+    MyRoutines
   } from './components';
 
 const App = () => {
@@ -38,6 +39,10 @@ const App = () => {
 
                 <Link to="/routines"></Link>
 
+                {
+                    authToken ? <Link to ="/myroutines" className="link">My Routines</Link> : <></>
+                }
+
                 <Link to="/activities" className="link"></Link>
 
                 {
@@ -60,6 +65,10 @@ const App = () => {
                     <Routines />
                 </Route>
 
+                <Route path = "/myroutines">
+                    <MyRoutines />
+                </Route>
+
                 <Route path = "/activities">
                     <Activities />
                 </Route>
@@ -69,7 +78,7 @@ const App = () => {
                 </Route>
 
                 <Route path = "/login">
-                    <LogIn authToken={authToken} setAuthToken={setAuthToken} />
+                    <LogIn />
                 </Route>
 
                 <Route path = "/register">
