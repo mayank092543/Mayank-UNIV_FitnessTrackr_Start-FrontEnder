@@ -57,8 +57,4 @@ const LogIn = () => {
   )
 }
 
-
-ReactDOM.render(
-  <LogIn />,
-  document.getElementById('app')
-)
+export default LogIn;

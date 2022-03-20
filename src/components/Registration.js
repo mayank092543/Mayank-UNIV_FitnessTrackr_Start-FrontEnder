@@ -27,6 +27,8 @@ const Registration =() => {
         }).then(response => response.json())
           .then(result => {
               console.log(result);
+              const token = result.token;
+              localStorage.setItem("userToken", token);
           })
           .catch(console.error);
 
