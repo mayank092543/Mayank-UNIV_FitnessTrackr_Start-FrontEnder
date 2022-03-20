@@ -1,6 +1,6 @@
 import { async } from "q";
 import React, { useState, useEffect } from "react";
-import Routines from "./Routines";
+// import Routines from "./Routines";
 
 const MyRoutines = () => {
     const [name , setName] = useState("")

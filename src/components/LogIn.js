@@ -11,7 +11,7 @@ const LogIn = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (event) => {
+  async function handleSubmit(event) {
     event.preventDefault()
     // console.log('username: ', username);
     // console.log('password: ', password);
@@ -49,7 +49,7 @@ const LogIn = () => {
 
         <label htmlFor='password'>Password:</label>
         <input type='password' name='password' value={password} onChange={(event) => setPassword(event.target.value)} />
-        <FontAwesomeIcon icon={regular('fa-sign-in')} />
+        
 
         <button type='submit'>Log In</button>
       </form>
