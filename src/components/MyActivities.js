@@ -58,3 +58,5 @@ const MyActivities = ({ activities }) => {
         </>
     )
 }
+
+export default MyActivities;

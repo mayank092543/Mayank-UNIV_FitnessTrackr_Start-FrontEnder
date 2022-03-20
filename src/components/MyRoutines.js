@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Routines from "./Routines";
+// import Routines from "./Routines";
 
-const Routines = ({routines}) => {
+const MyRoutines = ({ routines }) => {
 
 }
+
+export default MyRoutines;

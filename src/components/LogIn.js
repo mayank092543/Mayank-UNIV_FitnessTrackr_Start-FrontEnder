@@ -49,7 +49,7 @@ const LogIn = () => {
 
         <label htmlFor='password'>Password:</label>
         <input type='password' name='password' value={password} onChange={(event) => setPassword(event.target.value)} />
-        <FontAwesomeIcon icon={regular('fa-sign-in')} />
+        
 
         <button type='submit'>Log In</button>
       </form>
