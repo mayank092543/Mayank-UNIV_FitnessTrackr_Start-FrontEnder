@@ -1,7 +1,7 @@
 import { async } from "q";
 import React, { useState } from "react";
 
-const MyActivities = ({ activities }) => {
+const CreateActivities = ({ activities }) => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
 
@@ -59,4 +59,4 @@ const MyActivities = ({ activities }) => {
     )
 }
 
-export default MyActivities;
+export default CreateActivities;

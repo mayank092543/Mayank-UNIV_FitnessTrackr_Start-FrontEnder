@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import MyActivities from "./MyActivities";
+import CreateActivities from "./CreateActivities";
 
 
 const Activities = () => {
@@ -26,7 +26,7 @@ const Activities = () => {
                 <h1>All Activities</h1>
 
                 {
-                    token ? <MyActivities activities={activities} /> : <></>
+                    token ? <CreateActivities activities={activities} /> : <></>
                 }
 
                 {

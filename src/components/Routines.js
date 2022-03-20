@@ -26,10 +26,6 @@ const Routines = () => {
                 <h1>All Routines</h1>
 
                 {
-                    token ? <MyRoutines routines={routines} /> : <></>
-                }
-
-                {
                     routines.map((routine) => (
                         <div key={routine.id}>
                             <h1>Name: {routine.name}</h1>
