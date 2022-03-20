@@ -5,7 +5,6 @@ import { Link, BrowserRouter } from 'react-router-dom';
 // get our fontawesome imports
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 
-
 import {
     Home,
     LogIn,

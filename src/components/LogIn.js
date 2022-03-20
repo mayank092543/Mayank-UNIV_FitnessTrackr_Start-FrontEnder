@@ -11,7 +11,7 @@ const LogIn = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (event) => {
+  async function handleSubmit(event) {
     event.preventDefault()
     // console.log('username: ', username);
     // console.log('password: ', password);
@@ -58,7 +58,4 @@ const LogIn = () => {
 }
 
 
-ReactDOM.render(
-  <LogIn />,
-  document.getElementById('app')
-)
+export default LogIn;
