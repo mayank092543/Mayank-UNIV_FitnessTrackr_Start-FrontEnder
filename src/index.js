@@ -7,40 +7,84 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 
 import {
+    Home,
     LogIn,
-    //SignOut
+    LogOut,
+    Registration,
+    Activities,
+    Routines
   } from './components';
 
-const App = (props) => {
+const App = () => {
+
+    const [authToken, setAuthToken] = useState("")
+
+    useEffect(() => {
+        localStorage.getItem("userToken") ? setAuthToken(localStorage.getItem("userToken")) : setAuthToken(false)
+    }, [])
  
  
  return <>
      <BrowserRouter>
-        <main>
+     <div id="container">
+
+         <div id = "header">
+             <p className = "title">Fitness Tracker</p>
+
+         </div>
             <div id="navbar">
-                <Link to=""></Link>
-                <Link to=""></Link>
-                <Link to=""></Link>
-                <Link to=""></Link>
+
+                <Link to="/home"></Link>
+
+                <Link to="/routines"></Link>
+
+                <Link to="/activities" className="link"></Link>
+
+                {
+                    authToken ? <Link to ="/logout" className="link">LogOut</Link> : <Link to = "/login" className="link">LogIn</Link>
+                }    
+
+                {
+                    authToken ? <></> : <Link to ="/register" className="link">SignUp</Link>
+                }
+                
             </div>
+
             <div id="page-body">
-                {/* These will be replaced by components
-                    for example <Routines /> */}
-                <Switch>
-                    {/* <Route path="/community">
-                        <Community posts={posts}/>
-                    </Route>
-                    <Route path="/messages">
-                        <Messages />
-                    </Route> */}
-                    
-                </Switch>
+
+                <Route path = "/home">
+                    <Home />
+                </Route>
+
+                <Route path = "/routines">
+                    <Routines />
+                </Route>
+
+                <Route path = "/activities">
+                    <Activities />
+                </Route>
+
+                <Route path = "/logout">
+                    <LogOut />
+                </Route>
+
+                <Route path = "/login">
+                    <LogIn authToken={authToken} setAuthToken={setAuthToken} />
+                </Route>
+
+                <Route path = "/register">
+                    <Registration />
+                </Route>
+
             </div>
-        </main>
+        </div>
      
      </BrowserRouter>
 
   </>
 }
 
-export default LogIn;
+ReactDOM.render(
+    <App />,
+    document.getElementById('app'),
+);

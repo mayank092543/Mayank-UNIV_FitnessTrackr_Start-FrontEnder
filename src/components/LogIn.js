@@ -13,8 +13,26 @@ const LogIn = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log('username: ', username);
-    console.log('password: ', password);
+    // console.log('username: ', username);
+    // console.log('password: ', password);
+    const response = await fetch ("https://fathomless-ocean-09578.herokuapp.com/api/users/login", {
+      method: "POST",
+      headers: {
+        "Content-Type" : "Application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        passowrd: password
+      })
+    }).then(response => response.json())
+      .then(result => {
+        console.log(result);
+        const token = result.token;
+        localStorage.setItem("userToken", token);
+      })
+      .catch(console.error);
+
+      
     setUsername('');
     setPassword('');
   }
@@ -28,9 +46,11 @@ const LogIn = () => {
       <form onSubmit={handleSubmit}>
         <label htmlFor='username'>Username:</label>
         <input type='text' name='username' value={username} onChange={handleChange} />
+
         <label htmlFor='password'>Password:</label>
         <input type='password' name='password' value={password} onChange={(event) => setPassword(event.target.value)} />
         <FontAwesomeIcon icon={regular('fa-sign-in')} />
+
         <button type='submit'>Log In</button>
       </form>
     </div>
