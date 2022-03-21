@@ -5,7 +5,7 @@ const Home = () => {
 
     useEffect(() => {
         const fetchRoutines = async() => {
-            const response = await fetch("https://fathomless-ocean-09578.herokuapp.com/api/routines")
+            const response = await fetch("https://fitnesstrac-kr.herokuapp.com/api/routines")
                 .then(response => response.json())
                 .then(result => {
                     setHomeRoutines(result)

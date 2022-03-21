@@ -17,7 +17,7 @@ const CreateActivities = ({ activities, setActivities }) => {
         console.log(existingActivity)
 
         if(existingActivity !== name) {
-            const response = await fetch("https://fathomless-ocean-09578.herokuapp.com/api/activities", {
+            const response = await fetch(" http://fitnesstrac-kr.herokuapp.com/api/activities", {
                 method: "POST",
                 headers: {
                     "Content-Type" : "Application/json",

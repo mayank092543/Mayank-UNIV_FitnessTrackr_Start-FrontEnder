@@ -17,11 +17,15 @@ import {
 
 const App = () => {
 
-    const [authToken, setAuthToken] = useState(false)
+    // const [authToken, setAuthToken] = useState(false)
 
-    useEffect(() => {
-        localStorage.getItem("userToken") ? setAuthToken(true) : setAuthToken(false)
-    }, [])
+    // useEffect(() => {
+    //     localStorage.getItem("userToken") ? setAuthToken(true) : setAuthToken(false)
+    // }, [])
+
+    const token = localStorage.getItem("userToken")
+
+    console.log(token)
  
  
  return <>
@@ -39,17 +43,23 @@ const App = () => {
                 <Link to="/routines" className="link">Routines</Link>
 
                 {
-                    authToken ? <Link to ="/myroutines" className="link">My Routines</Link> : <></>
+                    localStorage.getItem("userToken") ? <Link to ="/myroutines" className="link">My Routines</Link> : <></>
                 }
+
+                {/* <Link to ="/myroutines" className="link">My Routines</Link>   */}
 
                 <Link to="/activities" className="link">Activities</Link>
 
                 {
-                    authToken ? <Link to ="/logout" className="link">LogOut</Link> : <Link to = "/login" className="link">LogIn</Link>
+                    localStorage.getItem("userToken") ? <Link to ="/logout" className="link">LogOut</Link> : <Link to = "/login" className="link">LogIn</Link>
                 }    
 
+                {/* <Link to ="/logout" className="link">LogOut</Link>
+
+                <Link to ="/logIn" className="link">LogIn</Link> */}
+
                 {
-                    authToken ? <></> : <Link to ="/register" className="link">SignUp</Link>
+                    localStorage.getItem("userToken") ? <></> : <Link to ="/register" className="link">SignUp</Link>
                 }
                 
             </nav>

@@ -2,7 +2,8 @@ import { async } from "q";
 import React, { useState, useEffect } from "react";
 // import Routines from "./Routines";
 
-const MyRoutines = ({routines, setRoutines}) => {
+const MyRoutines = () => {
+    const [routines, setRoutines] = useState([])
     const [name, setName] = useState("")
     const [goal, setGoal] = useState("")
 
@@ -11,7 +12,7 @@ const MyRoutines = ({routines, setRoutines}) => {
 
             const token = localStorage.getItem("userToken")
 
-            const response = await fetch("https://fathomless-ocean-09578.herokuapp.com/api/routines", {
+            fetch(" http://fitnesstrac-kr.herokuapp.com/api/routines", {
                 method: "POST",
                 headers: {
                     "Content-Type" : "Application/json",
@@ -21,7 +22,14 @@ const MyRoutines = ({routines, setRoutines}) => {
                     name: name,
                     goal: goal
                 })
-            })
+            }).then(response => response.json())
+              .then(result => {
+                  console.log(result);
+                  setRoutines(result)
+              })
+
+              setName("")
+              setGoal("")
     }
 
     return (
@@ -44,8 +52,18 @@ const MyRoutines = ({routines, setRoutines}) => {
                 <button type = "submit">Submit</button>
             </form>
 
+            {
+                routines.map((routine) => {
+                    <div key={routine.id}>
+                        <h2>Name: {routine.name}</h2>
+                    </div>
+                })
+            }
+
         </>
     )
+
+
 }
 
 export default MyRoutines;

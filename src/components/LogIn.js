@@ -15,7 +15,7 @@ const LogIn = () => {
     event.preventDefault()
     // console.log('username: ', username);
     // console.log('password: ', password);
-    const response = await fetch ("https://fathomless-ocean-09578.herokuapp.com/api/users/login", {
+    const response = await fetch ("https://fitnesstrac-kr.herokuapp.com/api/users/login", {
       method: "POST",
       headers: {
         "Content-Type" : "Application/json",

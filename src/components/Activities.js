@@ -9,7 +9,7 @@ const Activities = () => {
 
     useEffect(() => {
         const fetchActivities = async() => {
-            await fetch("https://fathomless-ocean-09578.herokuapp.com/api/activities")
+            await fetch(" http://fitnesstrac-kr.herokuapp.com/api/activities")
                 .then(response => response.json())
                 .then(result => {
                     setActivities(result)

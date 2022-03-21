@@ -15,7 +15,7 @@ const Registration =() => {
             setConfirmation("")
         }
         else {
-        const response = fetch ("https://fathomless-ocean-09578.herokuapp.com/api/users/register", {
+        const response = fetch ("https://fitnesstrac-kr.herokuapp.com/api/users/register", {
             method: "POST",
             headers: {
                 "Content-Type" : "Application/json",
