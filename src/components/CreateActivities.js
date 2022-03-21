@@ -34,7 +34,7 @@ const CreateActivities = ({ activities, setActivities }) => {
               })
               .catch(console.error)
         } else {
-            alert("An activity with this name already exists") // this is not working
+            alert("An activity with this name already exists") 
         }
 
         setName("")
