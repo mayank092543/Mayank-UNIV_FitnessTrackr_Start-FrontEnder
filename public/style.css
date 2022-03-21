@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(102,113,191,0.6786064767703957) 0%, rgba(86,221,239,1) 100%);
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.title {
+    font-size: 60px;
+    font-family: 'Bungee Shade', cursive;
+    color: black;
+    font-weight: bolder;
+}
+
+.link {
+    margin: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Quantico', sans-serif;
+    text-decoration: none;
+    color: #FFFFFF
+}
+
+#Logo {
+    height: 120px;
+    width: 300px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    
+}

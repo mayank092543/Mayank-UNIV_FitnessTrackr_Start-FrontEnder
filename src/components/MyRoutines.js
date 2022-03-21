@@ -2,8 +2,8 @@ import { async } from "q";
 import React, { useState, useEffect } from "react";
 // import Routines from "./Routines";
 
-const MyRoutines = () => {
-    const [name , setName] = useState("")
+const MyRoutines = ({routines, setRoutines}) => {
+    const [name, setName] = useState("")
     const [goal, setGoal] = useState("")
 
     const handleRoutinesSubmit = async(event) => {
@@ -26,7 +26,7 @@ const MyRoutines = () => {
 
     return (
         <>
-            <h1 id = "CreateRoutines">Create your Routines</h1>
+            <h1 id = "CreateRoutines">Create your own Routines</h1>
             <form onSubmit = {handleRoutinesSubmit}>
 
                 <label htmlFor = "RoutineName">Routine Name</label>

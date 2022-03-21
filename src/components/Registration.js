@@ -34,6 +34,7 @@ const Registration =() => {
 
           setUsername("")
           setPassword("")
+          setConfirmation("")
     }
 }
 

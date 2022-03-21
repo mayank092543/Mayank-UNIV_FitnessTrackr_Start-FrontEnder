@@ -15,7 +15,7 @@ const LogIn = () => {
     event.preventDefault()
     // console.log('username: ', username);
     // console.log('password: ', password);
-    const response = await fetch ("https://fathomless-ocean-09578.herokuapp.com/api/users/login", {
+    await fetch ("https://fathomless-ocean-09578.herokuapp.com/api/users/login", {
       method: "POST",
       headers: {
         "Content-Type" : "Application/json",
@@ -27,8 +27,15 @@ const LogIn = () => {
     }).then(response => response.json())
       .then(result => {
         console.log(result);
-        const token = result.token;
-        localStorage.setItem("userToken", token);
+
+        if (!result) {
+          alert("You may enter the wrong username or password")
+        }
+        else {
+          const token = result.token;
+          localStorage.setItem("userToken", token);
+          alert("You have been logged in!!!")
+        }
       })
       .catch(console.error);
 

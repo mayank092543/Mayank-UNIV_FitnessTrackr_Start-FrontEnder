@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import MyRoutines from "./MyRoutines";
 
 const Routines = () => {
-    const [routines, setRoutines] = useState("")
+    const [routines, setRoutines] = useState([])
 
     const token = localStorage.getItem("userToken");
 
@@ -26,19 +26,26 @@ const Routines = () => {
                 <h1>All Routines</h1>
 
                 {
+                    token ? <MyRoutines routines={routines} setRoutines={setRoutines} /> : <></>
+                }
+
+
+                {
                     routines.map((routine) => (
-                        <div key={routine.id}>
-                            <h1>Name: {routine.name}</h1>
+                        <div key={routine.id}><br></br>
+                            <h2>Name: {routine.name}</h2>
                             <h2>Goal: {routine.goal}</h2>
+                            <h2>Creator Name: {routine.creatorName}</h2>
 
                             {
                                 routine.activities.map(activity =>
                                     <div key={activity.id}>
-                                        <h3>Activity Name: {activity.name}</h3>
+                                        <h2>Activities {activity.id}</h2>
+                                        <h3>Name: {activity.name}</h3>
                                         <h3>Description: {activity.description}</h3>
                                         <h3>Duration: {activity.duration}</h3>
                                         <h3>Count: {activity.count}</h3>
-                                    </div>
+                                    </div> 
                                     )
                             }
                             

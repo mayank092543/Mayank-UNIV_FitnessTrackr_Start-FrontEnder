@@ -17,10 +17,10 @@ import {
 
 const App = () => {
 
-    const [authToken, setAuthToken] = useState("")
+    const [authToken, setAuthToken] = useState(false)
 
     useEffect(() => {
-        localStorage.getItem("userToken") ? setAuthToken(localStorage.getItem("userToken")) : setAuthToken(false)
+        localStorage.getItem("userToken") ? setAuthToken(true) : setAuthToken(false)
     }, [])
  
  
@@ -31,18 +31,18 @@ const App = () => {
          <div id = "header">
              <p className = "title">Fitness Tracker</p>
 
-         </div>
-            <div id="navbar">
+        
+            <nav id="navbar">
 
-                <Link to="/home"></Link>
+                <Link to="/home" className="link">Home</Link>
 
-                <Link to="/routines"></Link>
+                <Link to="/routines" className="link">Routines</Link>
 
                 {
                     authToken ? <Link to ="/myroutines" className="link">My Routines</Link> : <></>
                 }
 
-                <Link to="/activities" className="link"></Link>
+                <Link to="/activities" className="link">Activities</Link>
 
                 {
                     authToken ? <Link to ="/logout" className="link">LogOut</Link> : <Link to = "/login" className="link">LogIn</Link>
@@ -52,7 +52,10 @@ const App = () => {
                     authToken ? <></> : <Link to ="/register" className="link">SignUp</Link>
                 }
                 
-            </div>
+            </nav>
+        </div>
+
+        <img id="Logo" src="Logo.png" />
 
             <div id="page-body">
                 <Switch>
@@ -68,7 +71,7 @@ const App = () => {
                     <MyRoutines />
                 </Route>
 
-                <Route path = "/activities">
+                <Route exact path = "/activities">
                     <Activities />
                 </Route>
 

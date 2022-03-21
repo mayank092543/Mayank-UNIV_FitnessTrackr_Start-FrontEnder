@@ -3,16 +3,18 @@ import CreateActivities from "./CreateActivities";
 
 
 const Activities = () => {
-    const [activities, setActivities] = useState("");
+    const [activities, setActivities] = useState([]);
 
     const token = localStorage.getItem("userToken");
 
     useEffect(() => {
         const fetchActivities = async() => {
-            const response = await fetch("https://fathomless-ocean-09578.herokuapp.com/api/activities")
+            await fetch("https://fathomless-ocean-09578.herokuapp.com/api/activities")
                 .then(response => response.json())
                 .then(result => {
                     setActivities(result)
+
+                    // console.log(result)
                 })
                 .catch(console.error);
         }
@@ -26,7 +28,7 @@ const Activities = () => {
                 <h1>All Activities</h1>
 
                 {
-                    token ? <CreateActivities activities={activities} /> : <></>
+                    token ? <CreateActivities activities={activities} setActivities={setActivities} /> : <></>
                 }
 
                 {
